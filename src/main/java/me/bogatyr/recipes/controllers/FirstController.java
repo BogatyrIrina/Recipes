@@ -1,24 +1,25 @@
 package me.bogatyr.recipes.controllers;
 
+import me.bogatyr.recipes.dto.InfoDTO;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+
 @RestController
+@RequestMapping
 public class FirstController {
+    private static final InfoDTO INFO = new InfoDTO("Bogatyr Irina", "Recipes app",
+            LocalDate.of(2023, 3, 5), "App for managing recipes");
     @GetMapping
-    public String first() {
-        return "Приложение запущено";
+    public String hello() {
+        return "Application is started!";
     }
 
     @GetMapping("/info")
-    public String info() {
-        return "имя ученика: Иван,\n" +
-                "название проекта: Рецепт смузи,\n" +
-                "дата создания проекта: 01.03.2023,\n" +
-                "описание проекта: порезать ингредиенты кубиками. " +
-                "Сначала перемалывают твердые ингредиенты — орехи, овсянку. " +
-                "Потом — сочные фрукты и ягоды. Затем добавляют вязкие ингредиенты — например, банан. " +
-                "Потом жидкости, лед.";
+    public InfoDTO info() {
+        return INFO;
     }
 }
 
