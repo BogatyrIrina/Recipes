@@ -1,7 +1,9 @@
 package me.bogatyr.recipes.controllers;
 
 import me.bogatyr.recipes.dto.IngredientDTO;
+import me.bogatyr.recipes.dto.RecipeDTO;
 import me.bogatyr.recipes.model.Ingredient;
+import me.bogatyr.recipes.model.Recipe;
 import me.bogatyr.recipes.service.IngredientService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,11 +18,22 @@ public class IngredientController {
 
 
     @GetMapping("/{id}")
-    public IngredientDTO getIngredient(@PathVariable("id") int id){
+    public IngredientDTO getIngredient(@PathVariable("id") int id) {
         return ingredientService.getIngredient(id);
     }
+
     @PostMapping
-    public IngredientDTO addIngredient(@RequestBody Ingredient ingredient){
+    public IngredientDTO addIngredient(@RequestBody Ingredient ingredient) {
         return ingredientService.addIngredient(ingredient);
+    }
+
+    @PutMapping("/{id}")
+    public IngredientDTO editIngredient(@PathVariable("id") int id, @RequestBody Ingredient ingredient) {
+        return ingredientService.updateIngredient(id, ingredient);
+    }
+
+    @DeleteMapping("/{id}")
+    public IngredientDTO deleteIngredient(@PathVariable("id") int id) {
+        return ingredientService.deleteById(id);
     }
 }

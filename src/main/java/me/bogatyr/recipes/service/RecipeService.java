@@ -4,7 +4,9 @@ import me.bogatyr.recipes.dto.RecipeDTO;
 import me.bogatyr.recipes.model.Recipe;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -24,4 +26,29 @@ public class RecipeService {
         return null;
     }
 
+
+    public List<RecipeDTO> getAllRecipes() {
+        List<RecipeDTO> result = new ArrayList<>();
+        for (Map.Entry<Integer, Recipe> entry : recipes.entrySet()){
+            result.add(RecipeDTO.from(entry.getKey(), entry.getValue()));
+        }
+        return result;
+    }
+
+    public RecipeDTO updateRecipe(int id, Recipe recipe) {
+        Recipe existingRecipe = recipes.get(id);
+        if (existingRecipe == null){
+            throw new RecipeNotFoundException();
+        }
+        recipes.put(id, recipe);
+        return RecipeDTO.from(id, recipe);
+    }
+
+    public RecipeDTO deleteById(int id) {
+        Recipe existingRecipe = recipes.remove(id);
+        if (existingRecipe == null){
+            throw new RecipeNotFoundException();
+        }
+        return RecipeDTO.from(id, existingRecipe);
+    }
 }
