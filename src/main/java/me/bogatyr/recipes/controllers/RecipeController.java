@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/recipe")
 
 public class RecipeController {
-    public final RecipeService recipeService;
+    private final RecipeService recipeService;
 
-    public RecipeController(RecipeService recipeService) {
+    private RecipeController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
      @GetMapping
