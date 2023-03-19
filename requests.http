@@ -12,7 +12,7 @@ Content-Type: application/json
   "cookingTime": 30,
   "ingredients": [
     {
-      "title": "Test ingredient",
+      "title": "Test ingredient1",
       "number": 1,
       "measure": "piece"
     }
@@ -34,7 +34,7 @@ Content-Type: application/json
   "cookingTime": 60,
   "ingredients": [
     {
-      "title": "Test ingredient",
+      "title": "Test ingredient1",
       "number": 1,
       "measure": "piece"
     }
@@ -47,3 +47,6 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:8080/recipe/6
+
+
+

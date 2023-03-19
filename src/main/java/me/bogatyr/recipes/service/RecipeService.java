@@ -61,6 +61,7 @@ public class RecipeService {
         if (existingRecipe == null){
             throw new RecipeNotFoundException();
         }
+        saveToFile();
         return RecipeDTO.from(id, existingRecipe);
     }
     private void saveToFile(){
