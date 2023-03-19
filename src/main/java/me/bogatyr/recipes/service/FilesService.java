@@ -1,51 +1,51 @@
 package me.bogatyr.recipes.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Service
 public class FilesService {
-    @Value("${path.to.data.file}")
-    private String dataFilePath;
+    private final Path filesDir;
+    private final ObjectMapper objectMapper;
 
-    @Value("${name.of.data.file}")
-    private String dataFileName;
+    public FilesService(ObjectMapper objectMapper, @Value("${path.to.data.file}") Path filesDir) {
+        this.objectMapper = objectMapper;
+        this.filesDir = filesDir;
+    }
 
-    public boolean saveToFile(String json){
+    public <T> void saveToFile (String fileName, T objectToSave) {
         try {
-            cleanDataFile();
-            Files.writeString(Path.of(dataFilePath, dataFileName), json);
-            return true;
-        } catch (IOException e) {
+            String json = objectMapper.writeValueAsString(objectToSave);
+            Files.createDirectories(filesDir);
+            Path filePath = filesDir.resolve(fileName + ".json");
+            Files.deleteIfExists(filePath);
+            Files.createFile(filePath);
+            Files.writeString(filePath, json);
+        } catch (IOException e){
             e.printStackTrace();
-            return false;
         }
-
     }
-    public String readFromFile(){
-        try {
-            return Files.readString(Path.of(dataFilePath, dataFileName));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+    public <T> T readFromFile(String fileName, TypeReference<T> typeReference) {
+        Path filePath = filesDir.resolve(fileName+ ".json");
+        if (!Files.exists(filePath)){
+            return null;
         }
-
-    }
-    private boolean cleanDataFile(){
         try {
-            Path path = Path.of(dataFilePath, dataFileName);
-            Files.deleteIfExists(path);
-            Files.createFile(path);
-            return true;
-        } catch (IOException e) {
+            String jsonString = Files.readString(filePath);
+            T obj = objectMapper.readValue(jsonString, typeReference);
+            return obj;
+        } catch (IOException e){
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
-
-
 }

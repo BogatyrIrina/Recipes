@@ -8,7 +8,7 @@ POST http://localhost:8080/recipe
 Content-Type: application/json
 
 {
-  "title": "Test8",
+  "title": "Test1",
   "cookingTime": 30,
   "ingredients": [
     {

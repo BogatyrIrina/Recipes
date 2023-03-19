@@ -8,25 +8,33 @@ import me.bogatyr.recipes.model.Recipe;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class RecipeService {
+    final private static String STORE_FILE_NAME = "recipes";
     final private FilesService filesService;
+    final private IngredientService ingredientService;
     private int idCounter = 0;
-    private final Map<Integer, Recipe> recipes = new HashMap<>();
+    private final Map<Integer, Recipe> recipes;
 
-    public RecipeService(FilesService filesService) {
+    public RecipeService(FilesService filesService, IngredientService ingredientService) {
         this.filesService = filesService;
+        this.ingredientService = ingredientService;
+        Map<Integer,Recipe> storedMap = filesService.readFromFile(STORE_FILE_NAME,
+                new TypeReference<>() {
+                });
+        this.recipes = Objects.requireNonNullElseGet(storedMap, HashMap::new);
+    }
+    @PostConstruct
+    public void setUp(){
+
     }
 
     public RecipeDTO addRecipe(Recipe recipe){
         int id = idCounter++;
         recipes.put(id, recipe);
-        saveToFile();
+        this.filesService.saveToFile(STORE_FILE_NAME, this.recipes);
         return RecipeDTO.from(id,recipe);
     }
     public RecipeDTO getRecipe(int id){
@@ -52,7 +60,7 @@ public class RecipeService {
             throw new RecipeNotFoundException();
         }
         recipes.put(id, recipe);
-        saveToFile();
+        this.filesService.saveToFile(STORE_FILE_NAME, this.recipes);
         return RecipeDTO.from(id, recipe);
     }
 
@@ -61,28 +69,8 @@ public class RecipeService {
         if (existingRecipe == null){
             throw new RecipeNotFoundException();
         }
-        saveToFile();
+        this.filesService.saveToFile(STORE_FILE_NAME, this.recipes);
         return RecipeDTO.from(id, existingRecipe);
     }
-    private void saveToFile(){
-        try {
-            String json = new ObjectMapper().writeValueAsString(recipes);
-            filesService.saveToFile(json);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    private void readFromFile(){
-        String json = filesService.readFromFile();
-        try {
-            new ObjectMapper().readValue(json, new TypeReference<HashMap<Integer, Recipe>>() {
-            });
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    @PostConstruct
-    private void init(){
-        readFromFile();
-    }
+
 }

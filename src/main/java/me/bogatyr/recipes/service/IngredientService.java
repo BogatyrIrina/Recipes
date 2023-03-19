@@ -1,30 +1,35 @@
 package me.bogatyr.recipes.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import me.bogatyr.recipes.dto.IngredientDTO;
 import me.bogatyr.recipes.model.Ingredient;
+import me.bogatyr.recipes.model.Recipe;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
 @Service
 public class IngredientService {
-    final private FilesServiceIngredient filesServiceIngredient;
+    final private static String STORE_FILE_NAME = "ingredients";
     private int idCounter = 0;
-    private final Map<Integer, Ingredient> ingredients = new HashMap<>();
+    final private FilesService filesService;
+    private final Map<Integer, Ingredient> ingredients;
 
-    public IngredientService(FilesServiceIngredient filesServiceIngredient) {
-        this.filesServiceIngredient = filesServiceIngredient;
+    public IngredientService(FilesService filesService) {
+        this.filesService = filesService;
+        Map<Integer, Ingredient> storedMap = filesService.readFromFile(STORE_FILE_NAME,
+                new TypeReference<>() {
+                });
+        this.ingredients = Objects.requireNonNullElseGet(storedMap, HashMap::new);
     }
 
 
     public IngredientDTO addIngredient(Ingredient ingredient){
         int id = idCounter++;
         ingredients.put(id, ingredient);
-        saveToFile();
+        this.filesService.saveToFile(STORE_FILE_NAME, ingredients);
         return IngredientDTO.from(id, ingredient);
     }
     public IngredientDTO getIngredient(int id){
@@ -41,7 +46,7 @@ public class IngredientService {
             throw new IngredientNotFoundException();
         }
         ingredients.put(id, ingredient);
-        saveToFile();
+        this.filesService.saveToFile(STORE_FILE_NAME, ingredients);
         return IngredientDTO.from(id, ingredient);
     }
 
@@ -50,28 +55,8 @@ public class IngredientService {
         if (existingIngredient == null){
             throw new IngredientNotFoundException();
         }
-        saveToFile();
+        this.filesService.saveToFile(STORE_FILE_NAME, ingredients);
         return IngredientDTO.from(id, existingIngredient);
     }
-    private void saveToFile(){
-        try {
-            String json = new ObjectMapper().writeValueAsString(ingredients);
-            filesServiceIngredient.saveToFileIngredient(json);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    private void readFromFile(){
-        String json = filesServiceIngredient.readFromFileIngredient();
-        try {
-            new ObjectMapper().readValue(json, new TypeReference<HashMap<Integer, Ingredient>>() {
-            });
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    @PostConstruct
-    private void init(){
-        readFromFile();
-    }
+
 }
