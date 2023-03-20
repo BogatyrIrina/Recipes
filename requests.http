@@ -57,6 +57,6 @@ Content-Type: multipart/form-data; boundary=WebAppBoundary
 Content-Disposition: form-data; name="file"; fileName="file.json"
 Content-Type: application/json
 
-< ./recipes.json
+< /Users/admin/IdeaProjects/Recipes/src/main/resources/recipes.json
 
 
