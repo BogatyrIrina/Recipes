@@ -47,6 +47,16 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:8080/recipe/6
+###
+GET http://localhost:8080/files/recipes
+###
+POST http://localhost:8080/files/import/recipes
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; fileName="file.json"
+Content-Type: application/json
+
+< ./recipes.json
 
 

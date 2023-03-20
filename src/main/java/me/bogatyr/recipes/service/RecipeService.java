@@ -5,10 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.bogatyr.recipes.dto.RecipeDTO;
 import me.bogatyr.recipes.model.Recipe;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class RecipeService {
@@ -16,7 +20,7 @@ public class RecipeService {
     final private FilesService filesService;
     final private IngredientService ingredientService;
     private int idCounter = 0;
-    private final Map<Integer, Recipe> recipes;
+    private Map<Integer, Recipe> recipes;
 
     public RecipeService(FilesService filesService, IngredientService ingredientService) {
         this.filesService = filesService;
@@ -24,7 +28,12 @@ public class RecipeService {
         Map<Integer,Recipe> storedMap = filesService.readFromFile(STORE_FILE_NAME,
                 new TypeReference<>() {
                 });
-        this.recipes = Objects.requireNonNullElseGet(storedMap, HashMap::new);
+        if (storedMap != null){
+            this.recipes = storedMap;
+        }
+        else {
+            this.recipes = new HashMap<>();
+        }
     }
     @PostConstruct
     public void setUp(){
@@ -71,6 +80,17 @@ public class RecipeService {
         }
         this.filesService.saveToFile(STORE_FILE_NAME, this.recipes);
         return RecipeDTO.from(id, existingRecipe);
+    }
+
+    public Resource getRecipesFile() {
+        return filesService.getResource(STORE_FILE_NAME);
+    }
+
+    public void importRecipes(Resource resource){
+        filesService.saveResource(STORE_FILE_NAME, resource);
+        this.recipes = filesService.readFromFile(STORE_FILE_NAME,
+                new TypeReference<>() {
+                });
     }
 
 }
