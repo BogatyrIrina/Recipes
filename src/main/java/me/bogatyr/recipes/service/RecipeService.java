@@ -3,6 +3,7 @@ package me.bogatyr.recipes.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.bogatyr.recipes.dto.IngredientDTO;
 import me.bogatyr.recipes.dto.RecipeDTO;
 import me.bogatyr.recipes.model.Recipe;
 import org.springframework.core.io.Resource;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class RecipeService {
@@ -45,6 +47,16 @@ public class RecipeService {
         recipes.put(id, recipe);
         this.filesService.saveToFile(STORE_FILE_NAME, this.recipes);
         return RecipeDTO.from(id,recipe);
+    }
+
+    public List<RecipeDTO> getRecipesByIngredientId(int IngredientId){
+        IngredientDTO ingredient = this.ingredientService.getIngredient(IngredientId);
+        //Check null
+        return this.recipes.entrySet()
+                .stream()
+                .filter(e -> e.getValue().getIngredients().stream().anyMatch(i ->i.getTitle().equals(ingredient.getTitle())))
+                .map(e->RecipeDTO.from(e.getKey(), e.getValue()))
+                .collect(Collectors.toList());
     }
     public RecipeDTO getRecipe(int id){
         Recipe recipe = recipes.get(id);

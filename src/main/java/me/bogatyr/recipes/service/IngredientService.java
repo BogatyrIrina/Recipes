@@ -2,18 +2,17 @@ package me.bogatyr.recipes.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import me.bogatyr.recipes.dto.IngredientDTO;
+import me.bogatyr.recipes.dto.RecipeDTO;
 import me.bogatyr.recipes.model.Ingredient;
 import me.bogatyr.recipes.model.Recipe;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class IngredientService {
     final private static String STORE_FILE_NAME = "ingredients";
-    private int idCounter = 0;
+    private static int idCounter = 0;
     final private FilesService filesService;
     private final Map<Integer, Ingredient> ingredients;
 
@@ -38,6 +37,14 @@ public class IngredientService {
             return IngredientDTO.from(id, ingredient);
         }
         return null;
+    }
+
+    public List<IngredientDTO> getAllIngredients() {
+        List<IngredientDTO> result = new ArrayList<>();
+        for (Map.Entry<Integer, Ingredient> entry : ingredients.entrySet()){
+            result.add(IngredientDTO.from(entry.getKey(), entry.getValue()));
+        }
+        return result;
     }
 
     public IngredientDTO updateIngredient(int id, Ingredient ingredient) {

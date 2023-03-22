@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 @Controller
 public class ImportExportController {
     private final RecipeService recipeService;
@@ -22,14 +24,13 @@ public class ImportExportController {
 
 
     @GetMapping("/files/export/recipes")
-    public ResponseEntity<Resource> downloadRecipes(){
+    public ResponseEntity<Resource> downloadRecipes() throws IOException {
         Resource recipes = recipeService.getRecipesFile();
-        ContentDisposition disposition = ContentDisposition.attachment().
-                name("recipes.json").
-                build();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentDisposition(disposition);
-        return ResponseEntity.ok().headers(headers).body(recipes);
+        return ResponseEntity.ok()
+                .contentType(MediaType.TEXT_PLAIN)
+                .contentLength(recipes.contentLength())
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"recipes.json\"")
+                .body(recipes);
     }
     @PostMapping(value = "/files/import/recipes", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> importRecipes(@RequestParam MultipartFile file){
