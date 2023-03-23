@@ -35,6 +35,25 @@ public class RecipeController {
         return recipeService.getRecipe(id);
     }
 
+    @GetMapping("/byIngredient/{id}")
+    public List<RecipeDTO> getByIngredientId(@PathVariable("id") int id){
+        return recipeService.getRecipesByIngredientId(id);
+    }
+
+    @GetMapping("/byIngredients")
+    public List<RecipeDTO> getByIngredientsIds(@RequestParam("ids") List<Integer> ids){
+        return recipeService.getRecipesByIngredientsIds(ids);
+    }
+
+    @GetMapping("/page/{pageNumber}")
+    public List<RecipeDTO> getPage(@PathVariable("pageNumber") int pageNumber){
+        return recipeService
+                .getAllRecipes()
+                .stream()
+                .skip(pageNumber * 10L)
+                .limit(10).toList();
+    }
+
     @PostMapping
     @Operation(summary = "Добавление рецептов",
             description = "Добавить рецепт можно по id")

@@ -1,5 +1,7 @@
 package me.bogatyr.recipes.dto;
 
+
+
 import java.time.LocalDate;
 
 public class InfoDTO {
