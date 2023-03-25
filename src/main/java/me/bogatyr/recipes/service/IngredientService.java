@@ -5,6 +5,7 @@ import me.bogatyr.recipes.dto.IngredientDTO;
 import me.bogatyr.recipes.dto.RecipeDTO;
 import me.bogatyr.recipes.model.Ingredient;
 import me.bogatyr.recipes.model.Recipe;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -14,7 +15,7 @@ public class IngredientService {
     final private static String STORE_FILE_NAME = "ingredients";
     private static int idCounter = 0;
     final private FilesService filesService;
-    private final Map<Integer, Ingredient> ingredients;
+    private Map<Integer, Ingredient> ingredients;
 
     public IngredientService(FilesService filesService) {
         this.filesService = filesService;
@@ -66,4 +67,10 @@ public class IngredientService {
         return IngredientDTO.from(id, existingIngredient);
     }
 
+    public void importIngredients(Resource resource) {
+        filesService.saveResource(STORE_FILE_NAME, resource);
+        this.ingredients = filesService.readFromFile(STORE_FILE_NAME,
+                new TypeReference<>() {
+                });
+    }
 }

@@ -1,8 +1,8 @@
 package me.bogatyr.recipes.controllers;
 
+import me.bogatyr.recipes.service.IngredientService;
 import me.bogatyr.recipes.service.RecipeService;
 import org.springframework.core.io.Resource;
-import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,11 @@ import java.io.IOException;
 @Controller
 public class ImportExportController {
     private final RecipeService recipeService;
+    private final IngredientService ingredientService;
 
-    public ImportExportController(RecipeService recipeService) {
+    public ImportExportController(RecipeService recipeService, IngredientService ingredientService) {
         this.recipeService = recipeService;
+        this.ingredientService = ingredientService;
     }
 
 
@@ -35,6 +37,11 @@ public class ImportExportController {
     @PostMapping(value = "/files/import/recipes", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> importRecipes(@RequestParam MultipartFile file){
         this.recipeService.importRecipes(file.getResource());
+        return ResponseEntity.noContent().build();
+    }
+    @PostMapping(value = "/files/import/ingredients", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> importIngredients(@RequestParam MultipartFile file){
+        this.ingredientService.importIngredients(file.getResource());
         return ResponseEntity.noContent().build();
     }
 
