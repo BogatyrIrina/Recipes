@@ -66,13 +66,9 @@ POST http://localhost:8080/ingredient
 Content-Type: application/json
 
 {
-"ingredients": [
-    {
-      "title": "Test ingredient2",
-      "number": 2,
-      "measure": "piece"
-    }
-  ]
+  "title": "Test ingredient2",
+  "number": 2,
+  "measure": "piece"
 }
 ###
 POST http://localhost:8080/files/import/ingredients
