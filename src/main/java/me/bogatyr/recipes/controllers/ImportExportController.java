@@ -44,6 +44,4 @@ public class ImportExportController {
         this.ingredientService.importIngredients(file.getResource());
         return ResponseEntity.noContent().build();
     }
-
-
 }

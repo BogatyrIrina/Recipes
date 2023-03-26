@@ -52,7 +52,6 @@ public class RecipeService {
 
     public List<RecipeDTO> getRecipesByIngredientId(int ingredientId){
         IngredientDTO ingredient = this.ingredientService.getIngredient(ingredientId);
-        //Check null
         return this.recipes.entrySet()
                 .stream()
                 .filter(e -> e.getValue().getIngredients().stream().anyMatch(i ->i.getTitle().equals(ingredient.getTitle())))

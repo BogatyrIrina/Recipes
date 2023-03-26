@@ -59,4 +59,29 @@ Content-Disposition: form-data; name="file"; filename="data.json"
 < /Users/admin/IdeaProjects/Recipes/src/main/resources/recipes.json
 --WebAppBoundary--
 
+###
+GET http://localhost:8080/files/ingredients
+###
+POST http://localhost:8080/ingredient
+Content-Type: application/json
+
+{
+"ingredients": [
+    {
+      "title": "Test ingredient2",
+      "number": 2,
+      "measure": "piece"
+    }
+  ]
+}
+###
+POST http://localhost:8080/files/import/ingredients
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="data.json"
+
+< /Users/admin/IdeaProjects/Recipes/src/main/resources/ingredients.json
+--WebAppBoundary--
+
 
