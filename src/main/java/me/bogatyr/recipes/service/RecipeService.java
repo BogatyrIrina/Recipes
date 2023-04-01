@@ -1,16 +1,16 @@
 package me.bogatyr.recipes.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import me.bogatyr.recipes.dto.IngredientDTO;
 import me.bogatyr.recipes.dto.RecipeDTO;
+import me.bogatyr.recipes.exeption.RecipeNotFoundException;
 import me.bogatyr.recipes.model.Ingredient;
 import me.bogatyr.recipes.model.Recipe;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -126,5 +126,21 @@ public class RecipeService {
                 new TypeReference<>() {
                 });
     }
-
+    public void exportFileFromMemory(PrintWriter writer){
+        for (Recipe recipe:this.recipes.values()){
+            writer.println(recipe.getTitle());
+            writer.println("Время приготовление: %d минут".formatted(recipe.getCookingTime()));
+            writer.println("Ингредиенты:");
+            for (Ingredient ingredient : recipe.getIngredients()){
+                writer.println("\t%s - %d %s".formatted(ingredient.getTitle(), ingredient.getNumber(),
+                        ingredient.getMeasure()));
+            }
+            writer.println("Инструкция приготовления:");
+            for (int i = 0; i<recipe.getSteps().size(); i++){
+                writer.println("%d %s".formatted(i + 1, recipe.getSteps().get(i)));
+            }
+            writer.println("");
+        }
+        writer.flush();
+    }
 }

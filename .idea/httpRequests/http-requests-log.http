@@ -1,3 +1,447 @@
+GET http://localhost:8080/files/export/recipesFromMemory
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-04-01T175452.200.txt
+
+###
+
+GET http://localhost:8080/files/export/recipesFromMemory
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-04-01T175025.200.txt
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test2",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T175018.200.json
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test1",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T175008.200.json
+
+###
+
+PUT http://localhost:8080/recipe/1
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test4",
+  "cookingTime": 60,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T174923.200.json
+
+###
+
+PUT http://localhost:8080/recipe/1
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test4",
+  "cookingTime": 60,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T174919.200.json
+
+###
+
+GET http://localhost:8080/files/export/recipesFromMemory
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-04-01T174831.200.txt
+
+###
+
+GET http://localhost:8080/files/export/recipesFromMemory
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-04-01T174826.200.txt
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test1",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T174821.200.json
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test2",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T174817.200.json
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test3",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T174810.200.json
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test3",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T174809.200.json
+
+###
+
+GET http://localhost:8080/files/export/recipesFromMemory
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-04-01T173517.200.txt
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test3",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T173417.200.json
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test2",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T173409.200.json
+
+###
+
+POST http://localhost:8080/recipe
+Content-Type: application/json
+Content-Length: 217
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test1",
+  "cookingTime": 30,
+  "ingredients": [
+    {
+      "title": "Test ingredient1",
+      "number": 1,
+      "measure": "piece"
+    }
+  ],
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ]
+}
+
+<> 2023-04-01T173352.200.json
+
+###
+
+GET http://localhost:8080/files/ingredients
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-03-26T143128.404.json
+
+###
+
+GET http://localhost:8080/files/ingredients
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-03-26T143114.404.json
+
+###
+
+POST http://localhost:8080/ingredient
+Content-Type: application/json
+Content-Length: 70
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test ingredient3",
+  "number": 3,
+  "measure": "piece"
+}
+
+<> 2023-03-26T143108.200.json
+
+###
+
+GET http://localhost:8080/files/ingredients
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-03-26T142810.404.json
+
+###
+
+POST http://localhost:8080/files/import/ingredients
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Content-Length: 393
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="data.json"
+
+< /Users/admin/IdeaProjects/Recipes/src/main/resources/ingredients.json
+--WebAppBoundary--
+
+###
+
+POST http://localhost:8080/files/import/ingredients
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Content-Length: 393
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="data.json"
+
+< /Users/admin/IdeaProjects/Recipes/src/main/resources/ingredients.json
+--WebAppBoundary--
+
+###
+
+POST http://localhost:8080/ingredient
+Content-Type: application/json
+Content-Length: 70
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Test ingredient2",
+  "number": 2,
+  "measure": "piece"
+}
+
+<> 2023-03-26T142637.200.json
+
+###
+
 GET http://localhost:8080/files/ingredients
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
@@ -398,454 +842,6 @@ Content-Disposition: form-data; name="file"; fileName="data.json"
 --WebAppBoundary--
 
 <> 2023-03-23T134600.400.json
-
-###
-
-POST http://localhost:8080/files/import/recipes
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Content-Length: 327
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
---WebAppBoundary
-Content-Disposition: form-data; name="file"; fileName="file.json"
-Content-Type: application/json
-
-{"0":{"title":"Import1","cookingTime":30,"ingredients":[{"title":"Test ingredient1","number":1,"measure":"piece"}],"steps":["Step 1","Step 2","Step 3"]}}
---WebAppBoundary--
-
-<> 2023-03-23T134423.400.json
-
-###
-
-POST http://localhost:8080/files/import/recipes
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Content-Length: 327
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
---WebAppBoundary
-Content-Disposition: form-data; name="file"; fileName="file.json"
-Content-Type: application/json
-
-{"0":{"title":"Import1","cookingTime":30,"ingredients":[{"title":"Test ingredient1","number":1,"measure":"piece"}],"steps":["Step 1","Step 2","Step 3"]}}
---WebAppBoundary--
-
-<> 2023-03-23T134328.400.json
-
-###
-
-POST http://localhost:8080/files/import/recipes
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Content-Length: 327
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
---WebAppBoundary
-Content-Disposition: form-data; name="file"; fileName="file.json"
-Content-Type: application/json
-
-{"0":{"title":"Import1","cookingTime":30,"ingredients":[{"title":"Test ingredient1","number":1,"measure":"piece"}],"steps":["Step 1","Step 2","Step 3"]}}
---WebAppBoundary--
-
-<> 2023-03-22T211927.400.json
-
-###
-
-POST http://localhost:8080/files/import/recipes
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Content-Length: 327
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
---WebAppBoundary
-Content-Disposition: form-data; name="file"; fileName="file.json"
-Content-Type: application/json
-
-{"0":{"title":"Import1","cookingTime":30,"ingredients":[{"title":"Test ingredient1","number":1,"measure":"piece"}],"steps":["Step 1","Step 2","Step 3"]}}
---WebAppBoundary--
-
-<> 2023-03-20T125204.400.json
-
-###
-
-GET http://localhost:8080/recipe/
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-20T112344.200.json
-
-###
-
-GET http://localhost:8080/recipe/
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-20T111625.200.json
-
-###
-
-GET http://localhost:8080/files/recipes
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-20T111617.404.json
-
-###
-
-GET http://localhost:8080/files/recipes
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-20T102930.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 217
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test1",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient1",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-19T234625.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 217
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test8",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient1",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-19T234221.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test8",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-17T230640.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test6",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-17T230141.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T181257.200.json
-
-###
-
-DELETE http://localhost:8080/recipe/6
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-12T175439.200.json
-
-###
-
-GET http://localhost:8080/recipe/
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-12T175347.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T175307.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T175306.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T175305.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T175304-1.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T175304.200.json
-
-###
-
-POST http://localhost:8080/recipe
-Content-Type: application/json
-Content-Length: 216
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "title": "Test3",
-  "cookingTime": 30,
-  "ingredients": [
-    {
-      "title": "Test ingredient",
-      "number": 1,
-      "measure": "piece"
-    }
-  ],
-  "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
-  ]
-}
-
-<> 2023-03-12T175303.200.json
-
-###
-
-GET http://localhost:8080/recipe/0
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-###
-
-GET http://localhost:8080/recipe/0
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
 
 ###
 

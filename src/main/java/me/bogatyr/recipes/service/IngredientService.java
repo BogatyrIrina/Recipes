@@ -2,9 +2,8 @@ package me.bogatyr.recipes.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import me.bogatyr.recipes.dto.IngredientDTO;
-import me.bogatyr.recipes.dto.RecipeDTO;
+import me.bogatyr.recipes.exeption.IngredientNotFoundException;
 import me.bogatyr.recipes.model.Ingredient;
-import me.bogatyr.recipes.model.Recipe;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 

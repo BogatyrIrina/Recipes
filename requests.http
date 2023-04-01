@@ -8,7 +8,7 @@ POST http://localhost:8080/recipe
 Content-Type: application/json
 
 {
-  "title": "Test1",
+  "title": "Test2",
   "cookingTime": 30,
   "ingredients": [
     {
@@ -66,8 +66,8 @@ POST http://localhost:8080/ingredient
 Content-Type: application/json
 
 {
-  "title": "Test ingredient2",
-  "number": 2,
+  "title": "Test ingredient3",
+  "number": 3,
   "measure": "piece"
 }
 ###
@@ -79,5 +79,8 @@ Content-Disposition: form-data; name="file"; filename="data.json"
 
 < /Users/admin/IdeaProjects/Recipes/src/main/resources/ingredients.json
 --WebAppBoundary--
+
+###
+GET http://localhost:8080/files/export/recipesFromMemory
 
 

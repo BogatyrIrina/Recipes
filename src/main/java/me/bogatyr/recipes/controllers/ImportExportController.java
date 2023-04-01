@@ -3,6 +3,7 @@ package me.bogatyr.recipes.controllers;
 import me.bogatyr.recipes.service.IngredientService;
 import me.bogatyr.recipes.service.RecipeService;
 import org.springframework.core.io.Resource;
+import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @Controller
 public class ImportExportController {
@@ -34,6 +37,17 @@ public class ImportExportController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"recipes.json\"")
                 .body(recipes);
     }
+    @GetMapping("/files/export/recipesFromMemory")
+    public void downloadRecipes(HttpServletResponse response) throws IOException {
+        ContentDisposition disposition = ContentDisposition.attachment()
+                .name("recipes.txt")
+                .build();
+        response.addHeader(HttpHeaders.CONTENT_DISPOSITION, disposition.toString());
+        response.setContentType("text/plain");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        recipeService.exportFileFromMemory(response.getWriter());
+    }
+
     @PostMapping(value = "/files/import/recipes", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> importRecipes(@RequestParam MultipartFile file){
         this.recipeService.importRecipes(file.getResource());
